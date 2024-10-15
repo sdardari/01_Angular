@@ -1,0 +1,33 @@
+<p>demo-bindings works!</p>
+
+<h2> Demo bindings</h2>
+
+<section>
+    <h3> Property bindings </h3>
+    <p>on binde une propriete timescript a un html</p>
+
+    <h4> One-way binding </h4>
+    <p>Sert à afficher une propriété ts vers html </p>
+    <p> Le formateur du jour est {{formateur}}</p>
+
+    <h4> Two way binding </h4>
+    <p> sert à afficher/modifier une propriété (ts <=> html)</p>
+    <!-- /*<input type="text" value ="{{formateur}}">*/
+    // rajouter FormsModule a demo.module  -->
+    <input type="text" [(ngModel)]="formateur">
+
+</section>
+<section>
+    <h3> Attribute binding </h3>
+    <p> permets une liason entre une propriété (ou du code) et un attribut de balise html</p>
+    <button [disabled]="formateur !== 'soufiane'"> Hello 1 </button>
+    <button [disabled]="formateur !== 'seb'"> Hello 2</button>
+</section>
+
+<section>
+    <h3> Event binding </h3>
+    <p> permets de relier un event à une methode </p>
+    <p> Aujourd'hui on va manger des {{platDuJour}}</p>
+    <button (click)="genererPlat()"> generer </button>
+
+</section>

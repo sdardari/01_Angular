@@ -1,0 +1,38 @@
+<h2>Liste des produits</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Quantité</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (p of products; track p.id){
+        <tr >
+      <td>{{ p.name }}</td>
+      <td>{{ p.quantity }}</td>
+      <td>
+        <button (click)="setProductToDelete(p)">Supprimer</button>
+        <!-- //remplacer par la nouvelle methode -->
+      </td>
+    </tr>
+    }
+    
+  </tbody>
+</table>
+<h2>Exo Shopping List</h2>
+<!-- <section>
+  <input type="text" [(ngModel)]="productName">
+  <input type="number" [(ngModel)]="productQuantity">
+  <button (click)="addProduct()">Ajouter</button>
+  <app-shopping-list [products]="products" (shoppingEvent)="reactToShoppingEvent($event)"></app-shopping-list>
+</section> -->
+
+@if(productToDelete){
+    <app-delete-confirm
+    [product]="productToDelete"
+    (confirmEvent)="reactToConfirmDialog($event)">
+    </app-delete-confirm>
+}

@@ -1,0 +1,92 @@
+<h2> Demo Directives</h2>>
+
+<section> 
+    <h3> Structural directives</h3>
+    <h4>NgIf</h4>
+    <!--anciene version -->
+    <p *ngIf="isConnected">Connected</p>    
+    <p *ngIf="!isConnected">Not Connected</p>   
+    <button (click)="togleIsConnected()">Connect</button> 
+
+    <h4> NgIf {{'@if'}}</h4>
+    <p *ngIf="isConnected; else elseTemplate">Connected</p>
+    <ng-template #elseTemplate>
+        <p> Not Connected</p>
+    </ng-template>
+
+    <!--nouvelle version -->
+    @if (isConnected){
+        <p> Connected</p>
+    }@else {
+        <p> Not Connected </p>
+    }
+
+    <button (click)="togleIsConnected()">Connect</button> 
+
+
+    <h4> NgFor/ {{'@for'}}</h4>
+    <ul>
+        <li *ngFor="let product of products; let i = index">
+            <p>
+                {{product.name}} {{product.price | currency:"EUR"}}
+            </p>
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        @for(product of products; track product.id; let i= $index){
+            <li>
+                <p> {{product.name}} {{product.price | currency:"EUR"}} a l'index {{i}}</p>
+            </li>
+        }
+    </ul>
+
+    <h4>NgSwitch / {{'@switch'}}</h4>
+    <div [ngSwitch]="day">
+        <p *ngSwitchCase="1"> Lundi</p>
+        <p *ngSwitchCase="2"> mardi</p>
+        <p *ngSwitchCase="3"> mercredi</p>
+        <p *ngSwitchCase="4"> jeudi</p>
+        <p *ngSwitchCase="5"> vendredi</p>
+        <p *ngSwitchCase="6"> samedi</p>
+        <p *ngSwitchCase="7"> diamnche</p>
+    </div>
+    
+    <!--new version-->
+    @switch (day) {
+        @case(1){
+            <p>Lundi</p>
+        }        
+        @case(2){
+            <p>Mardi</p>
+        }        
+        @case(3){
+            <p>Mercredi</p>
+        }        
+        @case(4){
+            <p>jeudi</p>
+        }        
+        @case(5){
+            <p>vendredi</p>
+        }        
+        @case(6){
+            <p>samedi</p>
+        }        
+        @case(7){
+            <p>Dimanche</p>
+        }
+
+    }
+
+
+
+</section>
+
+<section>
+    <h3>Component directives</h3>
+    <!--a eviter celui juste en dessous-->
+    <p [ngStyle]="{'background-color' : 'red'}"> le 08 octobre</p>
+    <!--recommander-->
+    <p [ngClass]="{light: isDayTime, dark : !isDayTime}"> le 08 octobre</p>
+    <button (click)="togleIsDayTime()">Jour / nuit</button>
+</section>

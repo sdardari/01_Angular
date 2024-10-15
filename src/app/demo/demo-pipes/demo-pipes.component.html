@@ -1,0 +1,36 @@
+<p>Demo pipes</p>
+<section>
+    <h3> les built-in pipes</h3>
+
+    <div>
+        <h4> les string pipes</h4>
+        <p> Majuscule : {{myString| uppercase}}</p>
+        <p> Minuscule : {{myString| lowercase}}</p>
+        <p> Maj sur première lettre : {{myString|titlecase}}</p>
+    </div>
+
+    <div>
+        <h4> Les number pipes</h4>
+        <p> Arrondir un nombre: {{myNumber | number : '.0-4'}}</p>
+        <!-- apres la virgule entre 0 et 2 nomnre*/-->
+        <p> Argent : {{myNumber | currency : 'EUR'}} </p>
+
+    </div>
+
+    <div>
+        <h4> le date pipe</h4>
+        <p> {{now|date}}</p>
+        <p> {{now|date : 'dd MMMM YY'}}</p>
+        <!-- 2m egale en chiffre, 4m egale en lettre, 2Y deux derniers -->
+        <p> {{now|date : 'fullDate'}}</p>
+    </div>
+
+    
+</section>
+
+<section>
+    <h3> les custom pipes</h3>
+    <p> To celsuis: {{myNumber|toCelsius }}</p>
+    <p> Temperature: {{myNumber | temperature:'KC'}}</p>
+
+</section>

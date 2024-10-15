@@ -1,0 +1,39 @@
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    
+    li{
+        margin: 7px 0;
+        padding : 2px;
+
+        a{
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            display: inline-block;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a:hover{
+            background-color: #007bff;
+            color: #fff
+        }
+    }
+}
+/* Sub-menu item styling */
+ul{
+    li{
+        ul{
+            li {
+                    margin: 5px 0; /* Space between sub-menu items */
+                }
+            }   
+        }
+    }  
+  
+  
+  ul li ul a {
+    color: black; /* Sub-menu link color */
+    padding-left: 15px; /* Additional left padding for sub-menu links */
+  }

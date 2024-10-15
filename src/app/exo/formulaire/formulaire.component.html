@@ -1,0 +1,51 @@
+<p>formulaire works!</p>
+<h2>form</h2>
+
+<section>
+    <h3> à remplir</h3>
+    <form [formGroup]="personForm" (ngSubmit)= "submit()">
+        <div>
+            <input type="text" placeholder="Nom de famille" formControlName="firstname">
+            <app-form-error [control]="personForm.get('firstname')"></app-form-error>
+        </div>
+        <div>
+            <input type="text" placeholder="prénom" formControlName="lastname">
+            <app-form-error [control]="personForm.get('lastname')"></app-form-error>
+        </div>
+        <div>
+            <input type="date" placeholder="Reservation" formControlName="reservationDate">
+            <app-form-error [control]="personForm.get('reservationDate')"></app-form-error>
+        </div>
+        <div>
+            <input type="text" placeholder="description" formControlName="description">
+            <app-form-error [control]="personForm.get('description')"></app-form-error>
+        </div>
+        <div>
+            <input type="email" placeholder="Email" formControlName="email">
+            <app-form-error [control]="personForm.get('email')"></app-form-error>
+        </div>
+            <label for="single"> Rdv à domicile?</label>
+            <input id="single" type="checkbox" formControlName="single" (change)="onSingleChecked()">
+        <div>
+            @if(isAdressVisible){
+                <div>
+                    <input type="number" placeholder=" house number" formControlName="houseNumber">
+                    <app-form-error [control]="personForm.get('houseNumber')"></app-form-error>
+                </div>
+                <div>
+                    <input type="text" placeholder=" street name" formControlName="street">
+                    <app-form-error [control]="personForm.get('street')"></app-form-error>
+                </div>
+                <div>
+                    <input type="text" placeholder=" city name " formControlName="city">
+                    <app-form-error [control]="personForm.get('city')"></app-form-error>
+                </div>
+                <div>
+                    <input type="number" placeholder=" postcode" formControlName="postalCode">
+                    <app-form-error [control]="personForm.get('postalCode')"></app-form-error>
+                </div>
+            }
+            <button type= 'submit'> Envoyer</button>
+        </div>
+    </form>
+</section>

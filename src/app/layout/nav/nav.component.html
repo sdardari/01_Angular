@@ -1,0 +1,64 @@
+<!-- <ul>
+    <li>
+        <a routerLink="/">Home</a>
+    </li>
+    <li>
+        <a routerLink="/about">About</a>
+    </li>
+    <li>
+        <a routerLink="/demo">Demo</a>
+        <ul>
+            <li><a routerLink="/demo/demo_1">Demo Bindings</a></li>
+            <li><a routerLink="/demo/demo_2">Demo Pipes</a></li>
+            <li><a routerLink="/demo/demo_3">Demo Directive</a></li>
+        </ul>
+    </li>
+    <li>
+        <a>Exo</a>
+        <ul>
+            <li><a routerLink="/exo/exoTimer">Exo_01_Timer</a></li>
+        </ul>
+    </li>
+</ul> -->
+
+<!-- <ul>
+     <li *ngFor="let link of navLinks">
+        <a (click)="link.children? toggleVisibility(link): null" [routerLink]="link.url"
+        [class.has-children]="link.children">
+        {{link.title}}</a>
+
+        <ul *ngIf="link.children && link.isVisible">
+            <li *ngFor="let child of link.children">
+              <a [routerLink]="child.url">{{ child.title }}</a>
+            </li>
+          </ul>
+    </li> 
+</ul> -->
+<ul>
+    @for ( link of navLinks; track link.title){
+        <li>
+            <a (click)="link.children? toggleVisibility(link):null"
+            routerLink="{{link.url}}"
+            >
+        {{link.title}}</a>
+
+        @if(link.children && link.isVisible){
+            <ul>
+                @for(child of link.children; track $index){
+                    <li>
+                        <a routerLink="{{child.url}}">
+                            {{child.title}}
+                        </a>
+                    </li>
+
+                }
+            </ul>
+        }
+        </li>
+
+    }
+</ul>
+
+
+
+

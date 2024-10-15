@@ -1,0 +1,38 @@
+:host{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // mettre dans le host pour cybler les header qu'il y a dedans 
+    header{
+        background-color: darkcyan;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    div{
+        flex: 1;
+        display: flex;
+        
+        nav{
+        background-color: lightcyan;
+        width: 20%;
+        padding: 20px;
+    }
+    main {
+        width: 80%;
+        padding:  20px;
+    }
+    }
+
+    footer{
+        height: 30px;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        
+
+    }
+}
